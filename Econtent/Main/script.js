@@ -1,6 +1,6 @@
 // --- DATA SOURCE (Update this as you get WhatsApp messages) ---
 const projects = [
-    { roll: "01", name: "Gokul", topic: "SJF Scheduling", type: "blog", url: "EContent/Gokul/index.html" },
+    { roll: "22384108", name: "Gokul", topic: "SJF Scheduling", type: "blog", url: "https://aeroslayys.github.io/Gokul/" },
     { roll: "12", name: "Priya Das", topic: "Banker's Algorithm Guide", type: "blog", url: "#" },
     { roll: "45", name: "Rahul V.", topic: "Memory Management Podcast", type: "audio", url: "#" },
     // Paste new entries below this line
