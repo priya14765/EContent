@@ -4,7 +4,9 @@
 const projects = [
     { roll: "22384108", name: "Gokul", topic: "SJF Scheduling", type: "Websites", url: "https://aeroslayys.github.io/Gokul/" },
     { roll: "22384126", name: "Viswapriya R", topic: "Security Features in OS", type: "Websites", url: "https://priya14765.github.io/Digital-Security/" },
-    { roll: "22384125, 22384112", name: "Vishnupriya SV and Leeladevi M", topic: "Modern Operating Systems", type: "Websites", url: "" },
+    { roll: "22384125,22384112", name: "Vishnupriya SV and Leeladevi M", topic: "Modern Operating Systems", type: "Websites", url: "" },
+    { roll: "22384107", name: "Fuad PP", topic: "Deadlock & Banker's Algorithm", type: "Websites", url: "" },
+
     // Add more here from WhatsApp
 ];
 
@@ -40,7 +42,7 @@ function renderCards(data) {
                         <span class="text-[10px] tracking-[0.2em] font-black uppercase text-slate-400 bg-slate-800/50 px-3 py-1 rounded-full border border-slate-700">
                             ${item.type}
                         </span>
-                        <span class="text-xs font-mono text-blue-400/70">ID: OS-${item.roll}</span>
+                        <span class="text-xs font-mono text-blue-400/70">ID: ${item.roll}</span>
                     </div>
 
                     <h3 class="text-2xl font-bold text-white mb-3 leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${glowClass} transition-all duration-300">
