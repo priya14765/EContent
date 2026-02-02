@@ -45,7 +45,14 @@ const projects = [
         topic: "Page Replacement", 
         type: "PPT", 
         links: [{ label: "Open Presentation", url: "https://docs.google.com/presentation/d/1-qMFlePYHmQy7YV_gJuxqja36bVNlmHb/edit?usp=drivesdk&ouid=115351426755177367618&rtpof=true&sd=true" }] 
-    }
+    },
+        { 
+        roll: "22384117, 22384109", 
+        name: "Naresh and Harish", 
+        topic: "Shortest Job First Scheduling", 
+        type: "video", 
+        links: [{ label: "Launch Project", url: "https://youtu.be/S8Bhs0wP0l8?si=9l5M2urVQmaN_aJJ" }] 
+    },
 ];
 
 const grid = document.getElementById('contentGrid');
