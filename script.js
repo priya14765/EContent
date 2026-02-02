@@ -1,13 +1,51 @@
-
-// Function to generate the HTML for each card
 // --- DATA SOURCE ---
 const projects = [
-    { roll: "22384108", name: "Gokul", topic: "SJF Scheduling", type: "Websites", url: "https://aeroslayys.github.io/Gokul/" },
-    { roll: "22384126", name: "Viswapriya R", topic: "Security Features in OS", type: "Websites", url: "https://priya14765.github.io/Digital-Security/" },
-    { roll: "22384125,22384112", name: "Vishnupriya SV and Leeladevi M", topic: "Modern Operating Systems", type: "Websites", url: "" },
-    { roll: "22384107", name: "Fuad PP", topic: "Deadlock & Banker's Algorithm", type: "Websites", url: "https://fuad1817.github.io/Understanding-Deadlock/" },
-
-    // Add more here from WhatsApp
+    { 
+        roll: "22384108", 
+        name: "Gokul", 
+        topic: "SJF Scheduling", 
+        type: "Websites", 
+        links: [{ label: "Launch Project", url: "https://aeroslayys.github.io/Gokul/" }] 
+    },
+    { 
+        roll: "22384126", 
+        name: "Viswapriya R", 
+        topic: "Security Features in OS", 
+        type: "Websites", 
+        links: [{ label: "Launch Project", url: "https://priya14765.github.io/Digital-Security/" }] 
+    },
+    { 
+        roll: "22384125, 22384112", 
+        name: "Vishnupriya SV and Leeladevi M", 
+        topic: "Modern Operating Systems", 
+        type: "Websites", 
+        links: [{ label: "Launch Project", url: "#" }] 
+    },
+    { 
+        roll: "22384107", 
+        name: "Fuad PP", 
+        topic: "Deadlock & Banker's Algorithm", 
+        type: "Websites", 
+        links: [{ label: "Launch Project", url: "https://fuad1817.github.io/Understanding-Deadlock/" }] 
+    },
+    { 
+        roll: "22384123, 22384110", 
+        name: "Suba P and Indhumathi R", 
+        topic: "Round Robin CPU scheduling", 
+        type: "video", 
+        links: [
+            { label: "Watch Video", url: "https://youtube.com/watch?v=BdTvhPQxVUw&feature=shared" },
+            { label: "View GitHub Project", url: "https://github.com/greyyy123/round-robin-project" }
+        ] 
+    },
+  
+    { 
+        roll: "22384115, 22384120", 
+        name: "Shreya and Rifath", 
+        topic: "Page Replacement", 
+        type: "PPT", 
+        links: [{ label: "Open Presentation", url: "https://docs.google.com/presentation/d/1-qMFlePYHmQy7YV_gJuxqja36bVNlmHb/edit?usp=drivesdk&ouid=115351426755177367618&rtpof=true&sd=true" }] 
+    }
 ];
 
 const grid = document.getElementById('contentGrid');
@@ -16,34 +54,44 @@ const typeFilter = document.getElementById('typeFilter');
 
 function renderCards(data) {
     if (data.length === 0) {
-        grid.innerHTML = `
-            <div class="col-span-full text-center py-20">
-                <p class="text-slate-500 text-xl italic">No matching projects found...</p>
-            </div>`;
+        grid.innerHTML = `<div class="col-span-full text-center py-20"><p class="text-slate-500 text-xl italic font-light">No matching projects found...</p></div>`;
         return;
     }
 
     grid.innerHTML = data.map(item => {
-        // Agentix-style Glow Borders & Text Gradients based on type
+        // Agentix-style Glow Borders based on type
         const themes = {
             video: 'from-blue-500 to-cyan-400 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]',
             audio: 'from-purple-500 to-pink-400 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]',
-            Websites: 'from-emerald-500 to-teal-400 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]'
+            Websites: 'from-emerald-500 to-teal-400 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]',
+            PPT: 'from-orange-500 to-yellow-400 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.4)]'
         };
         
         const glowClass = themes[item.type] || 'from-slate-500 to-slate-400';
 
+        const buttonsHTML = item.links.map(link => `
+            <a href="${link.url}" target="_blank" 
+               class="flex items-center justify-center gap-2 w-full bg-[#161b2a] border border-slate-800 text-white text-sm font-semibold py-3 px-4 rounded-xl hover:bg-white hover:text-black transition-all duration-300">
+                ${link.label}
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+        `).join('');
+
         return `
             <div class="group relative bg-[#161b2a] rounded-3xl p-[1px] transition-all duration-500 hover:-translate-y-2 card-fade-in">
-                <div class="absolute inset-0 bg-gradient-to-br ${glowClass} rounded-3xl opacity-20 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div class="relative bg-[#0b0f1a] rounded-[23px] p-8 h-full flex flex-col">
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="text-[10px] tracking-[0.2em] font-black uppercase text-slate-400 bg-slate-800/50 px-3 py-1 rounded-full border border-slate-700">
-                            ${item.type}
-                        </span>
-                        <span class="text-xs font-mono text-blue-400/70">ID: ${item.roll}</span>
-                    </div>
+        <div class="absolute inset-0 bg-gradient-to-br ${glowClass} rounded-3xl opacity-20 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <div class="relative bg-[#0b0f1a] rounded-[23px] p-8 h-full flex flex-col">
+            <div class="flex justify-between items-start gap-4 mb-6">
+                <span class="text-[10px] tracking-[0.2em] font-black uppercase text-slate-400 bg-slate-800/50 px-3 py-1 rounded-full border border-slate-700 whitespace-nowrap">
+                    ${item.type}
+                </span>
+                <span class="text-xs font-mono text-blue-400/70 text-right break-words leading-relaxed">
+                    ID: ${item.roll}
+                </span>
+            </div>
 
                     <h3 class="text-2xl font-bold text-white mb-3 leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${glowClass} transition-all duration-300">
                         ${item.topic}
@@ -53,14 +101,8 @@ function renderCards(data) {
                         Contributed by <span class="text-slate-200 font-medium">${item.name}</span>
                     </p>
 
-                    <div class="mt-auto">
-                        <a href="${item.url}" target="_blank" 
-                           class="flex items-center justify-center gap-2 w-full bg-[#161b2a] border border-slate-800 text-white font-semibold py-4 rounded-2xl group-hover:bg-white group-hover:text-black transition-all duration-300">
-                            Launch Project
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
+                    <div class="mt-auto flex flex-col gap-3">
+                        ${buttonsHTML}
                     </div>
                 </div>
             </div>
@@ -68,13 +110,14 @@ function renderCards(data) {
     }).join('');
 }
 
-// Logic for Search and Filtering
 function performFilter() {
     const query = searchInput.value.toLowerCase();
     const type = typeFilter.value;
 
     const filtered = projects.filter(p => {
-        const matchesSearch = p.topic.toLowerCase().includes(query) || p.roll.includes(query);
+        const matchesSearch = p.topic.toLowerCase().includes(query) || 
+                              p.roll.toLowerCase().includes(query) || 
+                              p.name.toLowerCase().includes(query);
         const matchesType = type === 'all' || p.type === type;
         return matchesSearch && matchesType;
     });
@@ -82,30 +125,6 @@ function performFilter() {
     renderCards(filtered);
 }
 
-// Event Listeners
 searchInput.addEventListener('input', performFilter);
 typeFilter.addEventListener('change', performFilter);
-
-// Initial Page Load
-renderCards(projects);
-
-// Search and Filter Logic
-function performFilter() {
-    const query = searchInput.value.toLowerCase();
-    const type = typeFilter.value;
-
-    const filtered = projects.filter(p => {
-        const matchesSearch = p.topic.toLowerCase().includes(query) || p.roll.includes(query);
-        const matchesType = type === 'all' || p.type === type;
-        return matchesSearch && matchesType;
-    });
-
-    renderCards(filtered);
-}
-
-// Event Listeners
-searchInput.addEventListener('input', performFilter);
-typeFilter.addEventListener('change', performFilter);
-
-// Initial Render
 renderCards(projects);
