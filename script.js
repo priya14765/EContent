@@ -22,8 +22,8 @@ const projects = [
         links: [{ label: "Launch Project", url: "https://leela-29.github.io/os-nexus/E%20content/" }] 
     },
     { 
-        roll: "22384107", 
-        name: "Fuad PP", 
+        roll: "22384107,22384104", 
+        name: "Fuad PP and Athul Krishnan", 
         topic: "Deadlock & Banker's Algorithm", 
         type: "Websites", 
         links: [{ label: "Launch Project", url: "https://fuad1817.github.io/Understanding-Deadlock/" }] 
@@ -61,7 +61,7 @@ const projects = [
         links: [{ label: "Launch Project", url: "https://priya14765.github.io/Multitasking-and-Multithreading/" }] 
     },
         { 
-        roll: "22384121", 
+        roll: "22384106, 22384101", 
         name: "Boda Kaveri and Arthi", 
         topic: "Disk Scheduling Algorithms", 
         type: "Websites", 
