@@ -52,7 +52,7 @@ const projects = [
         topic: "Shortest Job First Scheduling", 
         type: "video", 
         links: [
-            { label: "Launch Video", url: "https://youtu.be/S8Bhs0wP0l8?si=9l5M2urVQmaN_aJJ" },
+            { label: "Watch Video", url: "https://youtu.be/S8Bhs0wP0l8?si=9l5M2urVQmaN_aJJ" },
             { label: "Launch Website", url: "https://cpu-scheduling-app.vercel.app/" }
         ] 
     },
