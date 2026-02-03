@@ -44,7 +44,7 @@ const projects = [
         name: "Shreya and Rifath", 
         topic: "Page Replacement", 
         type: "Websites", 
-        links: [{ label: "Launch Project", url: "hhttps://priya14765.github.io/Page-Replacement/" }] 
+        links: [{ label: "Launch Project", url: "https://priya14765.github.io/Page-Replacement/" }] 
     },
         { 
         roll: "22384117, 22384109", 
